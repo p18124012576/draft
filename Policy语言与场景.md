@@ -23,3 +23,11 @@ for ALL:
   state_3:
     terminate
 ```
+
+在状态2描述中出现的consumable代表来自已签约乙方的访问可以通过，recontractable表示在当前状态下允许乙方节点生成合约。如果附加了conditions部分则表示有条件允许，比如这个例子中要求乙方只能自引用，不得开放给第三方，同时要求一个同意特定协议的步骤（这两个业务上有些矛盾，仅做例子）。对于签约对象的限制可以对乙方给自身指定的policy做合规检查，看其for语句对象是不是限制范围的子集，而对于协议，则必须从初始态遍历乙方策略描述的状态机，看看是否存在不经过所要求的协议就可以到达任意有授权的状态。
+
+#### 状态描述
+consumable, presentable, recontractable
+
+#### 限制描述
+target, agreement, exclude event
